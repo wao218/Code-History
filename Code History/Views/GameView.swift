@@ -21,7 +21,10 @@ struct GameView: View {
                     .padding()
                 QuestionView(question: viewModel.currentQuestion)
             }
-        }.foregroundStyle(.white)
+        }
+        .foregroundStyle(.white)
+        .navigationBarBackButtonHidden()
+        .environmentObject(viewModel)
     }
 }
 
