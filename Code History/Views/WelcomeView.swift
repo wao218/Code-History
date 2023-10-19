@@ -22,15 +22,10 @@ struct WelcomeView: View {
                         .multilineTextAlignment(.leading)
                         .padding()
                     Spacer()
-                    NavigationLink(destination: GameView(), label: {
-                        HStack {
-                            Spacer()
-                            Text("Okay, let's go!")
-                                .font(.body)
-                                .bold()
-                                .padding()
-                            Spacer()
-                        }.background(GameColor.accentColor)
+                    NavigationLink(
+                        destination: GameView(),
+                        label: {
+                            BottomTextView(str: "Okay let's go!")
                     })
                 }
                 .foregroundStyle(.white)
