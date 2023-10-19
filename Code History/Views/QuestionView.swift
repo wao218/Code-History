@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct QuestionView: View {
+    let question: Question
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(question.questionText)
+                .font(.largeTitle)
+                .bold()
+                .multilineTextAlignment(.leading)
+            Spacer()
+            HStack {
+                ForEach(0..<question.possibleAnswers.count, id: \.self) { answerIndex in
+                    Button(action: {
+                        print("Tapped on option with the text: \(question.possibleAnswers[answerIndex])")
+                    }) {
+                        ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    QuestionView()
+    QuestionView(question: Game().currentQuestion
+    )
 }
